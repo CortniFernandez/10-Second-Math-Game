@@ -29,7 +29,7 @@ $(document).ready(function () {
 
   var updateMaxTime = function (amount) {
     maxTime += amount;
-    $('#countdown').html('<p>' + maxTime + '</p>');
+    $('#countdown').text(maxTime);
   }
 
   var updateScore = function (amount) {

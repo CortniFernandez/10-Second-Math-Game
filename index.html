@@ -7,26 +7,28 @@
     <title>10 Second Math Game</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Inline+Display&family=Rajdhani&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet" type="text/css" />
     <script src="application.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-xs-6">
-          <h2>10 Second Math Game</h2>
+        <div class="col-xs-6" id="left-side">
+          <h1>10 Second Math Game</h2>
           <p>You have ten seconds to see how many questions you can get right. For every correct answer, you get one point, and one more second of time to play.</p>
           <p>Type your answer in the box.</p>
           <p>Hit 'Enter' if you're sure!</p>
           <h3>Are you ready?</h3>
-          <p id="countdown">Countdown displays here</p>
+          <p>You have <span id="countdown">10</span>s remaining</p>
           <h3>High Score: <span id="high-score"></span></h3>
           <h3>Your Score: <span id="your-score"></span></h3>
         </div>
-        <div class="col-xs-6">
+        <div class="col-xs-6" id="right-side">
           <div class="row">
-            <div class="col-xs-12" id="equation-box">
-              <p>Equation here</p>
+            <div class="col-xs-12" >
+              <p id="equation-box"></p>
             </div>
           </div>
           <div class="row">

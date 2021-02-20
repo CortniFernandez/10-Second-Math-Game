@@ -1,1 +1,51 @@
-
+html {
+  min-height: 100%;
+}
+body {
+  background-image: linear-gradient(to bottom, #051937, #00324d, #00494e, #005e3d, #596d29);
+}
+h1, p, h3 {
+  color: rgb(211, 228, 186);
+  text-shadow: 2px 2px 5px rgb(90, 180, 90);
+}
+h1 {
+  font-size: 48pt;
+  font-family: 'Rajdhani', sans-serif;
+}
+p {
+  font-size: 18pt;
+  font-family: 'Big Shoulders Inline Display', cursive;
+  padding-left: 100px;
+}
+h3 {
+  font-size: 22pt;
+  font-weight: bold;
+  font-family: 'Big Shoulders Inline Display', cursive;
+}
+#left-side {
+  text-align: right;
+}
+#countdown {
+  font-size: 28pt;
+  font-weight: bold;
+}
+#equation-box {
+  border: 1px dashed rgb(211, 228, 186);
+  margin: 30px;
+  padding: 0 70px;
+  font-size: 130pt;
+}
+#your-answer-box {
+  margin: 30px;
+}
+#user-answer {
+  font-size: 30pt;
+}
+@media screen and (max-width: 1200px) {
+  #equation-box {
+    font-size: 90pt;
+  }
+  #user-answer {
+    width: 100%;
+  }
+}
