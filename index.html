@@ -15,9 +15,13 @@
       <div class="row">
         <div class="col-xs-6">
           <h2>10 Second Math Game</h2>
+          <p>You have ten seconds to see how many questions you can get right. For every correct answer, you get one point, and one more second of time to play.</p>
+          <p>Type your answer in the box.</p>
+          <p>Hit 'Enter' if you're sure!</p>
           <h3>Are you ready?</h3>
-          <button id="start-game">Start The Game</button>
           <p id="countdown">Countdown displays here</p>
+          <h3>High Score: <span id="high-score"></span></h3>
+          <h3>Your Score: <span id="your-score"></span></h3>
         </div>
         <div class="col-xs-6">
           <div class="row">
@@ -27,7 +31,7 @@
           </div>
           <div class="row">
             <div class="col-xs-12" id="your-answer-box">
-              <input id="user-answer" type="text" placeholder="Your Answer?" required/><button id='btn-go'>Go!</button>
+              <input id="user-answer" type="text" placeholder="Your answer?" required/>
               <p id="success-msg"></p>
             </div>
           </div>

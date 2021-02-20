@@ -1,6 +1,35 @@
 $(document).ready(function () {
 
   var currentProblem;
+  var maxTime = 10;
+  var yourScore = 0;
+  var timer;
+
+  var startGame = function() {
+    if (!timer) {
+      if (maxTime === 0) {
+        updateMaxTime(10);
+        updateScore(-yourScore);
+      }
+      timer = setInterval(function () {
+        updateMaxTime(-1);
+        if (maxTime === 0) {
+          clearInterval(timer);
+          timer = undefined;
+        }
+      }, 1000);
+    }
+  }
+
+  var updateMaxTime = function (amount) {
+    maxTime += amount;
+    $('#countdown').html('<p>' + maxTime + '</p>');
+  }
+
+  var updateScore = function (amount) {
+    yourScore += amount;
+    $('#your-score').text(yourScore);
+  };
 
   var getRandomEq = function() {
     var equation = {};
@@ -22,18 +51,25 @@ $(document).ready(function () {
       $('#success-msg').append('<p>Correct!</p>');
       newProblem();
       $('#user-answer').val('');
+      updateMaxTime(+1);
+      updateScore(+1);
     } else {
       $('#success-msg').append('<p>Wrong!</p>')
-      $(document).off('click', '#btn-go');
+      $(document).off('keyup', '#user-answer');
     };
   }
 
-  $(document).on('click', '#btn-go', function() {
+  $(document).on('keyup', '#user-answer', function(e) {
+    if (e.keyCode == 13) {
     checkAnswer(Number($('#user-answer').val()), currentProblem.answer);
+    };
+  });
+
+  $('#user-answer').on('keyup', function() {
+    startGame();
   });
 
   newProblem();
-  
 
 
 });
