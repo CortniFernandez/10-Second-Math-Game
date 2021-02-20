@@ -3,12 +3,18 @@ $(document).ready(function () {
   var currentProblem;
   var maxTime = 10;
   var yourScore = 0;
+  var highScore = 0;
   var timer;
 
   var startGame = function() {
     if (!timer) {
       if (maxTime === 0) {
+        alert("Time's up! Ready to try again?");
         updateMaxTime(10);
+        if (yourScore > highScore) {
+          $('#high-score').text(yourScore);
+          alert("New high score! Keep going!");
+        };
         updateScore(-yourScore);
       }
       timer = setInterval(function () {
@@ -55,7 +61,7 @@ $(document).ready(function () {
       updateScore(+1);
     } else {
       $('#success-msg').append('<p>Wrong!</p>')
-      $(document).off('keyup', '#user-answer');
+     
     };
   }
 
@@ -70,6 +76,5 @@ $(document).ready(function () {
   });
 
   newProblem();
-
 
 });
