@@ -1,32 +1,39 @@
 $(document).ready(function () {
 
+  var currentProblem;
 
-  var displayRandomProblem = function() {
-    $('#equation-box').empty();
+  var getRandomEq = function() {
     var equation = {};
     var numOne = Math.floor((Math.random() * 10) + 1);
     var numTwo = Math.floor((Math.random() * 10) + 1);
-    $('#equation-box').append('<p>' + numOne + ' + ' + numTwo + ' = ?</p>');
+    equation.display = numOne + ' + ' + numTwo + ' = ?';
     equation.answer = numOne + numTwo;
-
-    $(document).on('click', '#btn-go', function() {
-      $('#success-msg').empty();
-      var userAnswer = $('#user-answer').val();
-      if (userAnswer == equation.answer) {
-        $('#success-msg').append('<p>Correct!</p>');
-        displayRandomProblem();
-        $('#user-answer').val('');
-      } else {
-        $('#success-msg').append('<p>Wrong!</p>')
-        $(document).off('click', '#btn-go');
-      };
-    });
+    return equation;
   };
 
-  $(document).on('click', '#start-game', function() {
-    $('#user-answer').val('');
+  var newProblem = function() {
+    currentProblem = getRandomEq();
+    $('#equation-box').text(currentProblem.display);
+  };
+
+  var checkAnswer = function(userAnswer, correctAnswer) {
     $('#success-msg').empty();
-    displayRandomProblem();
+    if (userAnswer === correctAnswer) {
+      $('#success-msg').append('<p>Correct!</p>');
+      newProblem();
+      $('#user-answer').val('');
+    } else {
+      $('#success-msg').append('<p>Wrong!</p>')
+      $(document).off('click', '#btn-go');
+    };
+  }
+
+  $(document).on('click', '#btn-go', function() {
+    checkAnswer(Number($('#user-answer').val()), currentProblem.answer);
   });
+
+  newProblem();
+  
+
 
 });
