@@ -12,6 +12,7 @@ $(document).ready(function () {
         alert("Time's up! Ready to try again?");
         updateMaxTime(10);
         if (yourScore > highScore) {
+          highScore = yourScore;
           $('#high-score').text(yourScore);
           alert("New high score! Keep going!");
         };
